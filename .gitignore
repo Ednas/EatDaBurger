@@ -93,3 +93,5 @@ Thumbs.db
 # NPM file
 package-lock.json
 .npmrc
+.env
+
