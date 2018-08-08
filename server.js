@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var timeout = require('connect-timeout');
 
 var app = express();
 
@@ -15,6 +16,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //This is setting up method-override 
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
+
+// Timeout
+app.use(timeout(10000));
+app.use(haltOnTimedout);
+
+function haltOnTimedout(req, res, next) {
+    if (!req.timedout) next();
+}
 
 //sets up express-handlebars
 var exphbs = require('express-handlebars');
