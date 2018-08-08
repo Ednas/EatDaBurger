@@ -10,12 +10,13 @@ app.use("/static", express.static("public")); //Handlebars likes this one better
 
 //This sets up body-parser
 // parse application/x-www-form-urlencoded 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 //This is setting up method-override 
 // override with POST having ?_method=DELETE
-app.use(methodOverride('_method'))
-    //sets up express-handlebars
+app.use(methodOverride('_method'));
+
+//sets up express-handlebars
 var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
     defaultLayout: 'main'
