@@ -9,7 +9,6 @@ function printQuestionMarks(num) {
     for (var i = 0; i < num; i++) {
         arr.push("?");
     }
-
     return arr.toString();
 }
 
@@ -20,7 +19,6 @@ function objToSql(ob) {
     for (var key in ob) {
         arr.push(key + "=" + ob[key]);
     }
-
     return arr.toString();
 }
 
