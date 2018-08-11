@@ -2,6 +2,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var timeout = require('connect-timeout');
+var morgan = require('morgan');
+var fs = require('fs');
+var path = require('path');
 
 var app = express();
 
@@ -15,6 +18,13 @@ app.use(haltOnTimedout);
 function haltOnTimedout(req, res, next) {
     if (!req.timedout) next();
 }
+
+//Sets up morgan for logging
+// create a write stream (in append mode)
+var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' });
+
+// setup the logger (writes to the file)
+app.use(morgan('combined', { stream: accessLogStream }));
 
 //This sets up body-parser
 // parse application/x-www-form-urlencoded 
