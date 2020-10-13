@@ -21,4 +21,4 @@ I've written up the steps on deploying this application to Heroku using JawsDB a
 
 #### License
 
-Copyright 2016 - 2018 Edna Jonsson
+Copyright 2016 - 2020 Edna Jonsson
